@@ -50,12 +50,12 @@
                                 <img src="<?php echo bloginfo('template_url'); ?>/assets/img/icons/svg/phone.svg" alt="телефон" class="header__contacts-logo">
                                 <div class="header__contacts-tel">
                                     <a href="<?php the_field('tel', 2) ?>"><?php the_field('tel', 2) ?></a>
-                                    <a href="<?php the_field('tel', 2) ?>"><?php the_field('tel', 2) ?></a>
+                                    <a href="<?php the_field('tel_2', 2) ?>"><?php the_field('tel_2', 2) ?></a>
                                 </div>
                             </div>
                             <div class="header__contacts-item">
                                 <img src="<?php echo bloginfo('template_url'); ?>/assets/img/icons/svg/pointer.svg" alt="указатель" class="header__contacts-logo">
-                                <address href="<?php the_field('address', 2) ?>"><?php the_field('address', 2) ?></address>
+                                <address><?php the_field('address', 2) ?></address>
                                 <!-- <address>ул. Василисы Кожиной, 1<br>
                                     Москва, Россия, 121096</address> -->
                             </div>

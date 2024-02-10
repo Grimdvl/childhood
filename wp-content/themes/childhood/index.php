@@ -99,10 +99,12 @@
         </div>
         <div class="specialists" id="specialists">
             <div class="container">
-                <div class="title">Наша команда</div>
+                <div class="title"><?php the_field('team_title'); ?></div>
+                <!-- <div class="title">Наша команда</div> -->
                 <div class="row">
                     <div class="col-lg-10 offset-lg-1">
-                        <img class="specialists__img" src="<?php echo bloginfo('template_url'); ?>/assets/img/team.jpg" alt="наша команда">
+                        <!-- <img class="specialists__img" src="<?php echo bloginfo('template_url'); ?>/assets/img/team.jpg" alt="наша команда"> -->
+                        <img src="<?php the_field('team_img'); ?>" class="specialists__img" alt="наша команда">
                     </div>
                 </div>
             </div>
@@ -266,7 +268,8 @@
                         <div class="contacts__descr underlined">
                             Мы находимся в Москве, метро "Парк победы", в деловом центре "Парк победы", второй этаж
                             <br> <br>
-                            по адресу ул. Василисы Кожиной, 1
+                            <address><?php the_field('address', 2) ?></address>
+                            <!-- по адресу ул. Василисы Кожиной, 1 -->
                         </div>
                     </div>
                     <div class="col-lg-6">
@@ -326,7 +329,7 @@
                                             </linearGradient>
                                             </defs>
                                         </svg>
-                                        <a href="tel:+797867834347">+797867834347</a>
+                                        <a href="<?php the_field('tel', 2) ?>"><?php the_field('tel', 2) ?></a>
                                     </div>
                                 </div>
                                 <div class="contacts__phoneblock">
@@ -376,13 +379,14 @@
                                             </linearGradient>
                                             </defs>
                                         </svg>
-                                        <a href="tel:+797867834358">+797867834358</a>
+                                        <a href="<?php the_field('tel_2', 2) ?>"><?php the_field('tel_2', 2) ?></a>
                                     </div>
                                 </div>
                             </div>
                             <div class="contacts__mail">
                                 Или напишите нам на почту
-                                <a href="mailto:mirdetstva@gmail.com">mirdetstva@gmail.com</a>
+                                <a href="<?php the_field('mail', 2) ?>" class="header__contacts-mail"><?php the_field('mail', 2) ?></a>
+                                <!-- <a href="mailto:mirdetstva@gmail.com">mirdetstva@gmail.com</a> -->
                             </div>
                         </div>
                     </div>
