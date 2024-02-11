@@ -343,7 +343,7 @@
                                             </linearGradient>
                                             </defs>
                                         </svg>
-                                        <a href="<?php the_field('tel', 2) ?>"><?php the_field('tel', 2) ?></a>
+                                        <a href="tel:<?php the_field('tel', 2) ?>"><?php the_field('tel', 2) ?></a>
                                     </div>
                                 </div>
                                 <div class="contacts__phoneblock">
@@ -393,13 +393,13 @@
                                             </linearGradient>
                                             </defs>
                                         </svg>
-                                        <a href="<?php the_field('tel_2', 2) ?>"><?php the_field('tel_2', 2) ?></a>
+                                        <a href="tel:<?php the_field('tel_2', 2) ?>"><?php the_field('tel_2', 2) ?></a>
                                     </div>
                                 </div>
                             </div>
                             <div class="contacts__mail">
                                 Или напишите нам на почту
-                                <a href="<?php the_field('mail', 2) ?>" class="header__contacts-mail"><?php the_field('mail', 2) ?></a>
+                                <a href="mailto:<?php the_field('mail', 2) ?>" class="header__contacts-mail"><?php the_field('mail', 2) ?></a>
                                 <!-- <a href="mailto:mirdetstva@gmail.com">mirdetstva@gmail.com</a> -->
                             </div>
                         </div>
@@ -495,17 +495,33 @@
                         <div class="feedslider glide">
                             <div class="glide__track" data-glide-el="track">
                                 <ul class="glide__slides">
-                                    <li class="glide__slide">
-                                        <div class="feedslider__title">
-                                            Иванов Игорь
-                                        </div>
-                                        <div class="feedslider__text">
-                                            Спасибо огромное за вежливость и терпение. Обратился к вам только с идеей для подарка, а вы развили её до полноценного проекта! Так что мой сын теперь круглые сутки играет с железной дорогой, построенной по его планам)
-                                            <br><br>
-                                            Отдельное спасибо менеджеру Маргарите за терпение и стойкость!
-                                        </div>
-                                    </li>
-                                    <li class="glide__slide">
+                                <?php
+                                    $posts = get_posts( array(
+                                        'numberposts' => -1,
+                                        'category_name' => 'reviews',
+                                        'orderby' => 'date',
+                                        'order' => 'ASC',
+                                        'post_type' => 'post',
+                                        'suppress_filters' => true,
+                                    ) );
+
+                                    foreach( $posts as $post ){
+                                        setup_postdata($post);
+                                        ?>
+                                        <li class="glide__slide">
+                                            <div class="feedslider__title">
+                                                <?php the_title(); ?>
+                                            </div>
+                                            <div class="feedslider__text">
+                                                <?php the_field('descr_rew'); ?>
+                                            </div>
+                                        </li>
+                                        <?php
+                                    }
+
+                                    wp_reset_postdata();
+                                ?>
+                                    <!-- <li class="glide__slide">
                                         <div class="feedslider__title">
                                             Черкессов Алексей Дмитриевич
                                         </div>
@@ -520,7 +536,7 @@
                                         <div class="feedslider__text">
                                             Решила к дню рождения своей малышки заказать подарки здесь. И ни сколько не жалею! Мишка именно такой, как я хотела, прямо как у меня в детстве: мягкий, приятный на ощупь и оочень милый. Сразу видно, что ручная работа.
                                         </div>
-                                    </li>
+                                    </li> -->
                                 </ul>
                             </div>
 
